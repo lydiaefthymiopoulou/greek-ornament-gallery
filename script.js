@@ -128,7 +128,7 @@ const imagesHtml = reorderedGroup.map((img, index) => `
     const grouped = groupByItemID(rawData);
     renderGrouped(grouped);
 
-    filterAndRender();
+    
 
     document.querySelectorAll('.search-box').forEach(input => {
       input.addEventListener('input', filterAndRender);
