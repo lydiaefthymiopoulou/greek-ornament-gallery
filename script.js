@@ -2,7 +2,7 @@
 fetch('./converted_data.json')
   .then(response => response.json())
   .then(fullJson => {
-    const tableEntry = fullJson.find(entry => entry.type === "table" && entry.name === "greek_ornament");
+    const tableEntry = fullJson.children?.find(entry => entry.type === "table" && entry.name === "ornament");
     const rawData = tableEntry?.data || [];
 
     const gallery = document.getElementById('gallery');
