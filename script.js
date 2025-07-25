@@ -1,5 +1,5 @@
 
-fetch('./converted_data.json')
+fetch('converted_data.json')
   .then(response => response.json())
   .then(fullJson => {
     const tableEntry = fullJson.children?.find(entry => entry.type === "table" && entry.name === "ornament");
