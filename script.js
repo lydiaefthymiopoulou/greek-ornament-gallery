@@ -68,7 +68,7 @@ const rawData = tableEntry?.data || [];
 
 
 const imagesHtml = reorderedGroup.map((img, index) => `
-  <img src="images/unedited_images/${(img.ImageFile_Name || '').trim()}" 
+  <img src="images/${(img.ImageFile_Name || '').trim()}" 
        class="slide ${index === 0 ? 'active' : ''}" 
        data-group="${carouselId}">
 `).join("");
