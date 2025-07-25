@@ -1,10 +1,13 @@
-
 fetch('converted_data.json')
-  .then(response => response.json())
+  .then(response => {
+    console.log("✅ JSON FETCH STARTED");
+    return response.json();
+  })
   .then(fullJson => {
+    console.log("✅ JSON PARSED");
     const tableEntry = fullJson.children?.find(entry => entry.type === "table" && entry.name === "ornament");
     const rawData = tableEntry?.data || [];
-    console.log("RAW DATA LOADED ✅", rawData);
+    console.log("✅ RAW DATA LOADED", rawData);
      const gallery = document.getElementById('gallery');
   gallery.innerHTML = ''; // Clear "Loading..."
 
@@ -24,7 +27,7 @@ fetch('converted_data.json')
     gallery.appendChild(card);
   });
 
-    const gallery = document.getElementById('gallery');
+  
     const searchContainer = document.getElementById('search-container');
     const addButton = document.getElementById('add-search');
 
