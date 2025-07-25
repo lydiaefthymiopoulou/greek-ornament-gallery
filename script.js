@@ -16,7 +16,7 @@ fetch('converted_data.json')
 
     card.innerHTML = `
       <div class="carousel">
-        <img src="images/unedited_images/${(item.ImageFile_Name || '').trim()}" alt="Image" class="slide active" />
+        <img src="images/${(img.ImageFile_Name || '').trim()}" 
       </div>
       <p><strong>Category:</strong> ${item.Category}</p>
       <p><strong>Material:</strong> ${item.Material}</p>
