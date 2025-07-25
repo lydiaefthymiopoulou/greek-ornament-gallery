@@ -5,7 +5,8 @@ fetch('converted_data.json')
   })
   .then(fullJson => {
     console.log("✅ JSON PARSED");
-    const rawData = fullJson; // fullJson is already the array
+    const tableEntry = fullJson.find(entry => entry.type === "table" && entry.name === "ornament");
+const rawData = tableEntry?.data || [];
     console.log("✅ RAW DATA LOADED", rawData);
      const gallery = document.getElementById('gallery');
   gallery.innerHTML = ''; // Clear "Loading..."
