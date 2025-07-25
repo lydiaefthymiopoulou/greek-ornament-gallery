@@ -61,8 +61,8 @@ fetch('converted_data.json')
 
     const carouselId = `carousel-${item.ItemID}`;
     const reorderedGroup = [
-  ...group.filter(img => img.ImageFile_Name.toLowerCase().includes("detail")),
-  ...group.filter(img => !img.ImageFile_Name.toLowerCase().includes("detail"))
+  ...group.filter(img => img.ImageFile_Name && img.ImageFile_Name.toLowerCase().includes("detail")),
+  ...group.filter(img => img.ImageFile_Name && !img.ImageFile_Name.toLowerCase().includes("detail"))
 ];
 
 const imagesHtml = reorderedGroup.map((img, index) => `
