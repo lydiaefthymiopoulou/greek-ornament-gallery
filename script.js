@@ -16,7 +16,7 @@ fetch('converted_data.json')
 
     card.innerHTML = `
       <div class="carousel">
-        <img src="images/${item.ImageFile_Name}" alt="Image" class="slide active" />
+        <img src="images/unedited_images/${(item.ImageFile_Name || '').trim()}" alt="Image" class="slide active" />
       </div>
       <p><strong>Category:</strong> ${item.Category}</p>
       <p><strong>Material:</strong> ${item.Material}</p>
@@ -67,7 +67,7 @@ fetch('converted_data.json')
 
 
 const imagesHtml = reorderedGroup.map((img, index) => `
-  <img src="images/${img.ImageFile_Name}" 
+  <img src="images/unedited_images/${(img.ImageFile_Name || '').trim()}" 
        class="slide ${index === 0 ? 'active' : ''}" 
        data-group="${carouselId}">
 `).join("");
