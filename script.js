@@ -27,7 +27,7 @@ fetch('converted_data.json')
     gallery.appendChild(card);
   });
 
-  
+    
     const searchContainer = document.getElementById('search-container');
     const addButton = document.getElementById('add-search');
 
