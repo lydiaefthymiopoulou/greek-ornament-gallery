@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import os
+import numpy as np
 
 # Path to your Excel file
 excel_file = os.path.join("Spreadsheet", "ornament_data.xlsx")
@@ -10,6 +11,12 @@ json_file = "converted_data.json"
 
 # Load the Excel file
 df = pd.read_excel(excel_file)
+
+# Replace NaN with None
+df = df.replace({np.nan: None})
+
+# Remove all fields with None values from each row
+cleaned_records = [{k: v for k, v in row.items() if v is not None} for row in df.to_dict(orient="records")]
 
 # Build the JSON structure
 json_structure = [
@@ -21,7 +28,7 @@ json_structure = [
         "type": "table",
         "name": "ornament",
         "database": "greek_ornament",
-        "data": df.to_dict(orient="records")
+        "data": cleaned_records
     }
 ]
 
